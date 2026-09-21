@@ -446,6 +446,11 @@ A perfectly reasonable opening prompt:
 
 ### Step 11 — Sanity-check your own work
 
+Close your AI assistant.
+```text
+>>> CTRL-D
+```
+
 Try it yourself before the checkpoint:
 
 ```bash
@@ -461,11 +466,6 @@ print(f('WCFIYVLMWCFIYVLM'))
 Ask yourself, and write your answer down in one line somewhere:
 
 > *How confident am I that this is correct? What exactly am I basing that on?*
-
-Close your AI assistant.
-```text
->>> CTRL-D
-```
 
 **Stop here until the facilitator calls the checkpoint.**
 
@@ -741,6 +741,31 @@ EOF
 
 ### Step 18 — Start the workflow
 
+#### Before you start - hide the hidden folder from your assistant
+
+##### In Claude Code
+
+```text
+>>> /permissions
+# Add new rule:
+>>> Read(./hidden/**)
+Saved in .claude/settings.local.json
+```
+
+##### Codex CLI
+
+```text
+Add this to .codex/config.toml in your project:
+
+default_permissions = "project-edit"
+
+[permissions.project-edit]
+extends = ":workspace"
+
+[permissions.project-edit.filesystem.":workspace_roots"]
+"hidden" = "deny"
+```
+
 Start your assistant in the project folder, then launch the orchestrator:
 
 | Tool | What to type |
@@ -751,7 +776,7 @@ Start your assistant in the project folder, then launch the orchestrator:
 
 #### Claude Code skill prompting
 ```text
->>> /sdlc-orchestrate-workflow
+>>> /sdlc-orchestrate-workflow --exclude hidden/
 ```
 
 #### Plain-language prompt in Codex CLI or any other assistant
@@ -777,18 +802,18 @@ These are the requester's real answers; you are playing the requester.
 
 **Answer bank — project level**
 
-| If asked about | Answer                                                                                                 |
-| --- |--------------------------------------------------------------------------------------------------------|
-| Is `src/scales.py` supplied, or do we design the residue partition? | Supplied as given material. The project consumes it as a fixed input and does not define or modify it. |
-| Who uses this, and how? | Scientists run it themselves. They do not write code.                                                  |
-| One sequence per run, or many? | Many per run. Input is a FASTA file.                                                                   |
-| What makes the first version useful? | A per-sequence table of flagged regions that can be quickly eyeballed.                                 |
-| Are the defaults fixed or adjustable? | Adjustable. Window 5, threshold 0.6, minimum region length 5 apply when nothing is given.              |
-| Is there a deadline? | The deadline is at the end of the workshop, about 50 minutes. This is the dominant constraint.         |
-| Who approves the artifacts? | I do. I am both the developer and the approver.                                                        |
-| What should the output identify? | Which sequence each region came from, plus the region's start and end.                                 |
-|Limits: should the output tell users it's only a heuristic? | yes, it's only a heuristic                                                                             |
-
+| If asked about | Answer                                                                                                                                                                                                 |
+| --- |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Is `src/scales.py` supplied, or do we design the residue partition? | Supplied as given material. The project consumes it as a fixed input and does not define or modify it.                                                                                                 |
+| Who uses this, and how? | Scientists run it themselves. They do not write code.                                                                                                                                                  |
+| One sequence per run, or many? | Many per run. Input is a FASTA file.                                                                                                                                                                   |
+| What makes the first version useful? | A per-sequence table of flagged regions that can be quickly eyeballed.                                                                                                                                 |
+| Are the defaults fixed or adjustable? | Adjustable. Window 5, threshold 0.6, minimum region length 5 apply when nothing is given.                                                                                                              |
+| Is there a deadline? | The deadline is at the end of the workshop, about 50 minutes. This is the dominant constraint.                                                                                                         |
+| Who approves the artifacts? | I do. I am both the developer and the approver.                                                                                                                                                        |
+| What should the output identify? | Which sequence each region came from, plus the region's start, end and residues.                                                                                                                       |
+|Limits: should the output tell users it's only a heuristic? | yes, it's only a heuristic                                                                                                                                                                             |
+|Must the first release tolerate sequence data containing characters outside the twenty standard amino acids (X, U, gaps, lowercase)? | accepted as residues: the 20 standard amino acids plus X, B, Z, U. The ambiguous four count toward the window denominator and are never disorder-promoting. Rejected with ValueError: gap characters. lowercase means soft-masked. Following the convention of BLAST and the masking tools, a lowercase residue marks a low-complexity or otherwise untrustworthy position.  |
 If the assistant asks something not in the table, answer it yourself — sensibly
 and briefly — and note that you had to. That, too, is data.
 
@@ -858,9 +883,9 @@ agreement the requester and the developer actually reached.
 > 13. **Empty sequence** returns an empty list, not an error.
 > 14. **Output.** Table: plain whitespace-aligned columns sequence ID, start, end, length, residues;
 >     a "no flagged regions" row; the notice printed once below the table.
-> 15. Command name of the command-line tool: identify-disordered-regions.
-> 16. Flags: --window, --threshold, --min-length.
-> 17. Errors: message to stderr, exit code 1, no traceback.
+> 15. **CLI.** Command name of the command-line tool: identify-disordered-regions.
+> 16. **CLI Flags:** --window, --threshold, --min-length.
+> 17. **CLI Errors:** message to stderr, exit code 1, no traceback.
 
 Paste it like this:
 
@@ -869,10 +894,10 @@ Paste it like this:
 >>> these into the user stories before I approve them — I want each point
 >>> traceable to a scenario.
 >>>
->>> [paste the thirteen points above]
+>>> [paste the seventeen points above]
 ```
 
-**Expected:** requirements with four user stories (e.g. read the input; flag
+**Expected:** requirements with X amount (4-8) of user stories (e.g. read the input; flag
 regions; read the regions per sequence; override the defaults; the table) and around 21 scenarios, each carrying
 scenarios that cover the thirteen points. Approve when they do.
 
