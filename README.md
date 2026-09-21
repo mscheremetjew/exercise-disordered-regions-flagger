@@ -57,5 +57,13 @@ uv run mkdocs serve
 - **Type:** library
 - **Python:** 3.14+
 - **Agent skills:** `.agents/skills/`
-- **Author:** Maxim <name@example.org>
-- **License:** No license
+- **Author:** Maxim <schereme@mpi-cbg.de>
+- **License:** https://creativecommons.org/licenses/by/4.0/
+
+## Acknowledgements
+
+This exercise was developed with the support of the Max Planck Institute of Molecular Cell Biology and Genetics (MPI-CBG) in Dresden, Germany.
+Thank you to my PI Prof. Agnes Toth-Petroczy for her continuous support.
+
+The project setup and AI-assisted SDLC workflow was developed by Edwin Carreño (https://github.com/ecarrenolozano).
+I would also like to thank you my colleague Ksenia Kuznetsova for her valued feedback and support in the development of this project.
