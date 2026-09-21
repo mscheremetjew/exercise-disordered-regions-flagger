@@ -1,0 +1,83 @@
+{
+  "version": 1,
+  "skills": {
+    "a-clarify-project-request": {
+      "source": "ecarrenolozano/ai-sdlc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/a-clarify-project-request/SKILL.md",
+      "computedHash": "ef64174db4d4124eef769542aecf4efa81385fd8370290f633ec4341d681d89c"
+    },
+    "b-form-project-context": {
+      "source": "ecarrenolozano/ai-sdlc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/b-form-project-context/SKILL.md",
+      "computedHash": "72bd32c70c11d50a31b686c1d7c44ca91a949cdb8de6951461fc0b4863423659"
+    },
+    "c-manage-product-requirements": {
+      "source": "ecarrenolozano/ai-sdlc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/c-manage-product-requirements/SKILL.md",
+      "computedHash": "6141dd69e69813921d1586146677bfffe6f2c73524284174001123060b60082c"
+    },
+    "create-github-project-board": {
+      "source": "ecarrenolozano/ai-sdlc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/create-github-project-board/SKILL.md",
+      "computedHash": "30087c0066f5cb76de589f2abb538cdd349700f712e84f6139f787bf395e06a2"
+    },
+    "d-design-product-architecture": {
+      "source": "ecarrenolozano/ai-sdlc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/d-design-product-architecture/SKILL.md",
+      "computedHash": "beb1be5bc6544afe68986f9f987d44fa882acc5f1dba6d4fb629ea8769b6a9ee"
+    },
+    "e-sync-repository-requirements": {
+      "source": "ecarrenolozano/ai-sdlc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/e-sync-repository-requirements/SKILL.md",
+      "computedHash": "a00314a4638b9cded6c5b7a62cd9764a6668d56c04e6018ee9ac5044ca35bacc"
+    },
+    "f-establish-technical-foundation": {
+      "source": "ecarrenolozano/ai-sdlc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/f-establish-technical-foundation/SKILL.md",
+      "computedHash": "cbd92c55c028dd4d9b9cb1b4c053ede45b83b322b8404b99d3da01f047bd823a"
+    },
+    "g-implement-repository-work": {
+      "source": "ecarrenolozano/ai-sdlc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/g-implement-repository-work/SKILL.md",
+      "computedHash": "ea84ca9decd5555e4cea44fd313ee3b5b8b34c40f32a459477661fa687503436"
+    },
+    "h-create-implementation-pull-request": {
+      "source": "ecarrenolozano/ai-sdlc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/h-create-implementation-pull-request/SKILL.md",
+      "computedHash": "707af550c934672b93ac2746b7cd3e6af6b4d23bbc88a20259d77405afd1dd7a"
+    },
+    "i-validate-user-story-completion": {
+      "source": "ecarrenolozano/ai-sdlc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/i-validate-user-story-completion/SKILL.md",
+      "computedHash": "3eadf13e149e2d252c8764771c46c224d76d82f6b9929a64324d371890f7c450"
+    },
+    "j-prepare-release-deployment": {
+      "source": "ecarrenolozano/ai-sdlc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/j-prepare-release-deployment/SKILL.md",
+      "computedHash": "9f20adfcff9aadea6c3c6829d348860075911d91eaa4b4aa2f60a268e23069ed"
+    },
+    "sdlc-bootstrap-project": {
+      "source": "ecarrenolozano/ai-sdlc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/sdlc-bootstrap-project/SKILL.md",
+      "computedHash": "79188ab45b0d0072c7e267894bb23c3e5b8e238c01cee401621dbf999e45ba00"
+    },
+    "sdlc-orchestrate-workflow": {
+      "source": "ecarrenolozano/ai-sdlc-skills",
+      "sourceType": "github",
+      "skillPath": "skills/sdlc-orchestrate-workflow/SKILL.md",
+      "computedHash": "9088d7f17a0a0dc1b05de422f7ac2d255f5bf136cefccc415c945beec87ebabe"
+    }
+  }
+}

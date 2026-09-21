@@ -1,0 +1,77 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "disordered-regions-flagger"
+version = "0.1.0"
+description = "A Python project developed with an AI-assisted, approval-gated SDLC workflow."
+readme = "README.md"
+requires-python = ">=3.14"
+authors = [
+  { name = "Maxim", email = "schereme@mpi-cbg.de" },
+]
+license = { text = "MIT" }
+dependencies = []
+
+[project.scripts]
+identify-disordered-regions = "disordered_regions_flagger.cli:main"
+
+[dependency-groups]
+dev = [
+  "bump-my-version>=0.28",
+  "coverage[toml]>=7.9",
+  "hatchling>=1.27",
+  "mypy>=1.16",
+  "pre-commit>=4.2",
+  "pytest>=8.4",
+  "pytest-bdd>=7.3",
+  "pytest-cov>=6.2",
+  "ruff>=0.12",
+]
+docs = [
+  "mkdocs>=1.6",
+  "zensical>=0.0.9",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/disordered_regions_flagger"]
+
+[tool.pytest.ini_options]
+addopts = "--cov=disordered_regions_flagger --cov-report=term-missing"
+testpaths = ["tests"]
+bdd_features_base_dir = "tests/validation/features"
+# The supplied acceptance tests in hidden/ import the src.idr bridge, so the
+# repository root must be importable (hidden/ is not a package).
+pythonpath = ["."]
+
+[tool.coverage.run]
+branch = true
+source = ["disordered_regions_flagger"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "RUF"]
+
+[tool.mypy]
+python_version = "3.14"
+strict = true
+mypy_path = "src"
+# hidden/ holds the supplied acceptance tests; src/idr.py is the bridge they
+# import through, which mypy would otherwise see as both "idr" and "src.idr".
+exclude = ["^src/idr\\.py$", "^hidden/"]
+
+[tool.bumpversion]
+current_version = "0.1.0"
+allow_dirty = false
+commit = false
+tag = false
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = "version = \"{current_version}\""
+replace = "version = \"{new_version}\""
