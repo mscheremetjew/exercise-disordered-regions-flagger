@@ -1,0 +1,10 @@
+site_name: disordered regions flagger
+site_description: A Python project developed with an AI-assisted, approval-gated SDLC workflow.
+docs_dir: docs
+nav:
+  - Home: index.md
+  - Getting started: getting-started.md
+  - Development: development.md
+  - AI-assisted workflow: workflow.md
+  - Architecture: architecture.md
+  - API: api/index.md

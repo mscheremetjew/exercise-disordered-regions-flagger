@@ -1,0 +1,14 @@
+# Workflow Traceability
+
+| Item | Type | Status | Current activity | Evidence | Missing or blocked | Next action |
+|---|---|---|---|---|---|---|
+| Project request | Foundation | Complete | Request Clarification | 00_inception/clarified_project_request.md | None | Run b-form-project-context |
+| Project context | Foundation | Complete | Project Context Formation | 00_inception/project_context.md | None | Run c-manage-product-requirements |
+| Initial requirements | Initial Release | Complete | Product Requirements Management | 01_requirements/product_requirements.md (REQ-0001 to REQ-0004, US-0001 to US-0008 approved 2026-09-21) | None | Run d-design-product-architecture |
+| Architecture | Initial Release | Not Started | Product Architecture Design | 01_requirements/product_requirements.md (approved 2026-09-21) | Consciously skipped by requester decision on 2026-09-21 due to the workshop deadline; stage not performed and not complete | Run d-design-product-architecture when the requester lifts the skip |
+| Repository preparation | Initial Release | Not Started | Repository Synchronization | 01_requirements/product_requirements.md (approved 2026-09-21) | Consciously skipped by requester decision on 2026-09-21 due to the workshop deadline; stage not performed and not complete; no repository issues published for US-0001 to US-0008 | Run e-sync-repository-requirements when the requester lifts the skip |
+| Technical foundation | Initial Release | Not Started | — | Repository already carries scaffolding from the exercise template (pyproject.toml, tests/, pre-commit) that this stage did not produce | Consciously skipped by requester decision on 2026-09-21 due to the workshop deadline; stage not performed and not complete | Run f-establish-technical-foundation when the requester lifts the skip |
+| Implementation | Initial Release | Complete | Repository Work Implementation | src/disordered_regions_flagger/idr.py, fasta.py, cli.py; src/idr.py bridge; tests/unit/test_idr.py, tests/integration/test_cli.py; 43 passed (19 supplied acceptance, 11 unit, 12 CLI, 1 existing), ruff and mypy clean | None for US-0001 to US-0008; architecture, repository preparation and technical foundation remain consciously skipped | Run i-validate-user-story-completion |
+| User story validation | Initial Release | Not Started | User Story Validation | 01_requirements/product_requirements.md (US-0001 to US-0008 approved 2026-09-21); implementation complete | No Gherkin feature files or pytest-bdd scenarios created yet | Run i-validate-user-story-completion |
+| Pull request | Initial Release | Not Started | — | — | User story validation incomplete | Run h-create-implementation-pull-request |
+| Release deployment | Initial Release | Not Started | — | — | Pull request incomplete | Run j-prepare-release-deployment |
